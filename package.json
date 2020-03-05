@@ -1,0 +1,20 @@
+{
+  "name": "template-node-api",
+  "version": "0.0.1",
+  "description": "A template api for node",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "dev": "ts-node src/index.ts"
+  },
+  "author": "Joshua Toth",
+  "license": "MIT",
+  "devDependencies": {
+    "jest": "^25.1.0",
+    "ts-node": "^8.6.2",
+    "typescript": "^3.8.3"
+  },
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
