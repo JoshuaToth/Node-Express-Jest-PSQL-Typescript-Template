@@ -2,15 +2,18 @@
   "name": "template-node-api",
   "version": "0.0.1",
   "description": "A template api for node",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
     "test": "jest",
-    "dev": "ts-node src/index.ts"
+    "dev": "nodemon --watch 'src/**/*.ts' --ignore 'src/**/*.spec.ts' --exec 'ts-node' src/server.ts"
   },
   "author": "Joshua Toth",
   "license": "MIT",
   "devDependencies": {
+    "@types/express": "^4.17.3",
+    "@types/node": "^13.7.7",
     "jest": "^25.1.0",
+    "nodemon": "^2.0.2",
     "ts-node": "^8.6.2",
     "typescript": "^3.8.3"
   },
