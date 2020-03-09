@@ -3,14 +3,16 @@ import { QueryResult } from 'pg'
 
 const GET_HEALTHCHECK_RESULT = 'SELECT * FROM healthcheck'
 
-export const GetHealthcheckStatus = async (): Promise<string> => {
-  const result = await runQuery(GET_HEALTHCHECK_RESULT)
+export type HealthCheckResponses = 'OK' | 'ERROR: DB healthcheck not confirmed'
+
+export const GetHealthcheckStatus = async (): Promise<HealthCheckResponses> => {
+  const result: HealthCheckResponses = await runQuery(GET_HEALTHCHECK_RESULT)
     .then((res: QueryResult<{ message: string }>) => {
-      return res.rows[0].message
+      return res.rows[0].message === 'OK' ? 'OK' : 'ERROR: DB healthcheck not confirmed'
     })
     .catch(error => {
       console.log(error)
-      return 'ERROR'
+      return 'ERROR: DB healthcheck not confirmed'
     })
 
   return result

@@ -1,7 +1,7 @@
 import { Client, QueryResult, Pool } from 'pg'
 
 const connect = async (): Promise<Client> => {
-  const pool = new Pool()
+//   const pool = new Pool()
   const client = new Client()
   await client.connect()
   return client
