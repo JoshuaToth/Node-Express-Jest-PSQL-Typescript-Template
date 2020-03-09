@@ -1,6 +1,7 @@
+require('dotenv').config();
+
 import app from './server/config'
-const PORT = 8080
 
-app.listen(PORT)
+app.listen(process.env.SERVER_PORT)
 
-console.log(`server started at port: ${PORT}`)
+console.log(`server started at port: ${process.env.SERVER_PORT}`)
