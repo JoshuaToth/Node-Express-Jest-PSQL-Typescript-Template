@@ -10,5 +10,19 @@ services:
       - ./psql_scripts:/docker-entrypoint-initdb.d
     environment:
       POSTGRES_PASSWORD: secretpassword
+  api:
+    image: "node"
+    user: "node"
+    working_dir: /home/node/app
+    environment:
+      - NODE_ENV=production
+    volumes:
+      - ./dist:/home/node/app
+    ports:
+      - "8080:8080"
+    links:
+      - db:database
+    command: "node server.js"
+    
 volumes:
   api_data:
