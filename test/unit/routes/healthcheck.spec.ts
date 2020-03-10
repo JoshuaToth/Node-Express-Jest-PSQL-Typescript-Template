@@ -1,5 +1,5 @@
 import * as request from 'supertest'
-import app from '../../src/server/config'
+import app from '../../../src/server/config'
 
 import { Client } from 'pg';
 

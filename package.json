@@ -4,7 +4,8 @@
   "description": "A template api for node",
   "main": "server.js",
   "scripts": {
-    "test": "jest",
+    "test:unit": "jest --config jest.config.js",
+    "test:e2e": "cp environment/local_example.env .env && docker-compose up -d db && jest --config jest.config.e2e.js",
     "dev": "nodemon --watch 'src/**/*.ts' --exec 'ts-node' src/server.ts",
     "build:dev": "rm -rf dist && tsc && cp -R node_modules dist/node_modules && cp environment/local_example.env dist/.env",
     "build:docker": "rm -rf dist && tsc && cp -R node_modules dist/node_modules && cp environment/docker.env dist/.env",
